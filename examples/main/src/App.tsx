@@ -23,9 +23,11 @@ function App(props: any) {
           <li onClick="push('/vue')">Vue</li>
           <li onClick="push('/angular9')">Angular9</li>
           <li onClick="push('/purehtml')">Purehtml</li> */}
-          <Router>
+          {/* <Router>
             <Link to="/react16">React16</Link>
-          </Router>
+            <Link to="/react15">React15</Link>
+            <Link to="/react14">React14</Link>
+          </Router> */}
         </ul>
 
         <main id="subapp-container"></main>
