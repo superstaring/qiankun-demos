@@ -18,10 +18,13 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "rescripts eject"
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.14"
   },
   "eslintConfig": {
     "extends": "react-app"

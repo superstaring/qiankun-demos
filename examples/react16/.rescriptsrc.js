@@ -1,4 +1,6 @@
-const { name } = require('./package');
+const {
+  name
+} = require('./package');
 
 module.exports = {
   webpack: config => {
