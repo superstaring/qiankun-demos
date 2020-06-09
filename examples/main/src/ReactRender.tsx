@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 
 /**
  * 渲染子应用
@@ -9,6 +10,7 @@ function Render(props: any) {
 
   return (
     <>
+      <App />
       {loading && <h4 className="subapp-loading">Loading...</h4>}
       <div id="subapp-viewport" />
     </>
@@ -16,6 +18,6 @@ function Render(props: any) {
 }
 
 export default function render({ loading }: { loading: any }) {
-  const container = document.getElementById("subapp-container");
+  const container = document.getElementById("root");
   ReactDOM.render(<Render loading={loading} />, container);
 }

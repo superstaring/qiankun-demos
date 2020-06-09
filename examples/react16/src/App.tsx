@@ -14,13 +14,14 @@ function App() {
           <br />
           <Link to="/react16/about">About</Link>
         </nav>
+
+        <Suspense fallback={null}>
+          <Switch>
+            <Route path="/react16" exact component={Home} />
+            <Route path="/react16/about" component={About} />
+          </Switch>
+        </Suspense>
       </Router>
-      <Suspense fallback={null}>
-        <Switch>
-          <Route path="/react16" exact component={Home} />
-          <Route path="/react16/about" component={About} />
-        </Switch>
-      </Suspense>
     </div>
   );
 }
