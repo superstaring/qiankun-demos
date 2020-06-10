@@ -1,4 +1,6 @@
-const { name } = require("./package");
+const {
+  name
+} = require("./package");
 
 module.exports = {
   webpack: (config) => {
@@ -6,6 +8,7 @@ module.exports = {
     config.output.libraryTarget = "umd";
     config.output.jsonpFunction = `webpackJsonp_${name}`;
     config.output.globalObject = "window";
+    config.output.publicPath = "/react16/";
 
     return config;
   },

@@ -24,10 +24,12 @@ const loader = (loading: any) => render({ loading });
  * Step2 注册子应用
  */
 
+const isDev = process.env.NODE_ENV === "development";
+
 registerMicroApps([
   {
     name: "react16",
-    entry: "//localhost:7100",
+    entry: isDev ? "//localhost:7100" : "/react16/index.html",
     container: "#subapp-viewport",
     loader,
     activeRule: "/react16",
