@@ -1,6 +1,6 @@
-const {
-  name
-} = require("./package");
+const { name } = require("./package");
+
+const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   webpack: (config) => {
@@ -8,7 +8,7 @@ module.exports = {
     config.output.libraryTarget = "umd";
     config.output.jsonpFunction = `webpackJsonp_${name}`;
     config.output.globalObject = "window";
-    config.output.publicPath = "/react16/";
+    config.output.publicPath = isDev ? "" : "/react16";
 
     return config;
   },
