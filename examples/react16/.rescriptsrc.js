@@ -1,4 +1,6 @@
-const { name } = require("./package");
+const {
+  name
+} = require("./package");
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -8,7 +10,7 @@ module.exports = {
     config.output.libraryTarget = "umd";
     config.output.jsonpFunction = `webpackJsonp_${name}`;
     config.output.globalObject = "window";
-    config.output.publicPath = isDev ? "" : "/react16";
+    config.output.publicPath = isDev ? "" : "/react16App";
 
     return config;
   },
@@ -16,7 +18,7 @@ module.exports = {
   devServer: (_) => {
     const config = {};
 
-    config.port = "7100";
+    config.port = "7000";
     config.headers = {
       "Access-Control-Allow-Origin": "*",
     };
