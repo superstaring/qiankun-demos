@@ -9,6 +9,7 @@ import {
   setDefaultMountApp,
   start,
   initGlobalState,
+  addGlobalUncaughtErrorHandler,
 } from "qiankun";
 
 import render from "./ReactRender";
@@ -29,12 +30,24 @@ const isDev = process.env.NODE_ENV === "development";
 registerMicroApps([
   {
     name: "react16",
-    entry: isDev ? "//localhost:7000" : "/react16App/index.html",
+    entry: isDev ? "//localhost:7000/index.html" : "/react16App/index.html",
     container: "#subapp-viewport",
     loader,
     activeRule: "/react16",
   },
 ]);
+
+/**
+ * 添加全局的未捕获异常处理器
+ */
+addGlobalUncaughtErrorHandler((event: Event | string) => {
+  console.error(event);
+  const { message: msg } = event as any;
+  // 加载失败时提示
+  if (msg && msg.includes("died in status LOADING_SOURCE_CODE")) {
+    console.log("微应用加载失败，请检查应用是否可运行");
+  }
+});
 
 /**
  * Step3 设置默认进入的子应用
